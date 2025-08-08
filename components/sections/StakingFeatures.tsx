@@ -36,7 +36,7 @@ export function StakingFeatures() {
         <section className="py-16 bg-black relative overflow-hidden">
             {/* Background gradient effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-70"></div>
-            
+
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
                     <motion.h2
@@ -74,12 +74,12 @@ export function StakingFeatures() {
                             <div className="absolute top-0 right-0 w-1/2 h-1/2 opacity-10 transform rotate-45">
                                 <div className="grid grid-cols-8 gap-1">
                                     {Array.from({ length: 64 }).map((_, i) => (
-                                        <motion.div 
-                                            key={i} 
+                                        <motion.div
+                                            key={i}
                                             className="aspect-square bg-yellow-400"
                                             initial={{ opacity: 0.3 }}
                                             animate={{ opacity: [0.2, 0.4, 0.2] }}
-                                            transition={{ 
+                                            transition={{
                                                 duration: Math.random() * 3 + 2,
                                                 repeat: Infinity,
                                                 repeatType: "reverse"
@@ -99,34 +99,31 @@ export function StakingFeatures() {
                                     <h3 className="text-2xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">{product.title}</h3>
                                 </div>
 
-                                <motion.p 
+                                <motion.p
                                     className="text-gray-300 mb-8 pr-4 min-h-[80px]"
                                     initial={{ x: 0 }}
                                     whileHover={{ x: [0, -5, 0] }}
                                     transition={{ duration: 0.4 }}
                                 >{product.description}</motion.p>
 
-                                <Link href={product.href} className="inline-block group">
-                                    <motion.div 
-                                        className="relative h-12 overflow-hidden"
-                                        whileHover={{ width: "auto" }}
-                                        initial={{ width: "48px" }}
-                                        transition={{ duration: 0.4, ease: "easeOut" }}
-                                    >
-                                        <div className="flex items-center h-full">
+                                <Link href={product.href} className="inline-block w-full">
+                                    <div className="relative h-12 overflow-hidden">
+                                        {/* Arrow button - visible when not hovering the card */}
+                                        <div className="flex items-center h-full absolute left-0 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-full">
                                             <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full flex items-center justify-center shadow-lg shadow-yellow-500/20">
                                                 <ArrowRight className="w-6 h-6 text-black" />
                                             </div>
-                                            <motion.span 
-                                                className="text-yellow-500 font-semibold pl-3 pr-4 whitespace-nowrap"
-                                                initial={{ opacity: 0, x: -10 }}
-                                                whileHover={{ opacity: 1, x: 0 }}
-                                                transition={{ duration: 0.3, delay: 0.1 }}
-                                            >
-                                                Learn More
-                                            </motion.span>
                                         </div>
-                                    </motion.div>
+
+                                        {/* "Join Now" button - visible when hovering the card */}
+                                        <motion.div
+                                            className="flex items-center h-full absolute left-0 opacity-0 translate-x-[-30px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                                        >
+                                            <div className="bg-gradient-to-r from-yellow-500 to-amber-600 rounded-lg px-6 py-3 shadow-lg shadow-yellow-500/20">
+                                                <span className="text-black font-bold whitespace-nowrap">Join Now</span>
+                                            </div>
+                                        </motion.div>
+                                    </div>
                                 </Link>
                             </div>
                         </motion.div>
