@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Twitter, Facebook, Instagram, Linkedin, Github } from "lucide-react";
-import logo from "../../app/assets/logo1.jpg"
+import logo from "../../app/assets/logo1.png"
 export function Footer() {
     const currentYear = new Date().getFullYear();
 

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import logo from "../../app/assets/logo1.jpg";
+import logo from "../../app/assets/logo1.png";
 
 export function Hero() {
     return (

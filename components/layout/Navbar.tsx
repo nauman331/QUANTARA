@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "../../app/assets/logo1.jpg";
+import logo from "../../app/assets/logo1.png";
 
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
