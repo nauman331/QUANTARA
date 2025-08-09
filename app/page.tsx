@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navbar } from "@/components/layout/Navbar";
-import { Hero } from "@/components/sections/Hero";
+import { HeroSection } from "@/components/sections/HeroSection";
 import { Features } from "@/components/sections/Features";
 import { UseCases } from "@/components/sections/UseCases";
 import { StakingFeatures } from "@/components/sections/StakingFeatures";
@@ -9,13 +9,12 @@ import { TechnicalIntegrations } from "@/components/sections/TechnicalIntegratio
 import { QuantaraZone } from "@/components/sections/QuantaraZone";
 import { Pricing } from "@/components/sections/Pricing";
 import { FAQ } from "@/components/sections/FAQ";
-import { Footer } from "@/components/layout/Footer";
 
 const Home = () => {
   return (
     <main className="min-h-screen bg-black quantum-bg">
       <Navbar />
-      <Hero />
+      <HeroSection />
       <Features />
       <UseCases />
       <StakingFeatures />
