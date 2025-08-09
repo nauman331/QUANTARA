@@ -3,17 +3,18 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { AnimatedText } from "@/components/animations/AnimatedText";
-import { ArrowRight } from "lucide-react";
+import { Users, Wallet } from "lucide-react";
 import logo from "../../app/assets/logo1.png";
 
 export function HeroSection() {
     return (
         <section className="relative min-h-screen flex flex-col justify-center pt-20 pb-10 px-4 overflow-hidden">
-            {/* Animated wave background */}
+            {/* Enhanced metaverse wave background */}
             <div className="absolute inset-0 overflow-hidden z-0">
                 <svg className="absolute bottom-0 left-0 w-full"
                     viewBox="0 0 1440 320"
                     preserveAspectRatio="none">
+                    {/* First layer - smoothest wave */}
                     <motion.path
                         d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
                         fill="rgba(252, 211, 77, 0.03)"
@@ -25,11 +26,12 @@ export function HeroSection() {
                         }}
                         transition={{
                             repeat: Infinity,
-                            repeatType: "reverse",
-                            duration: 10,
-                            ease: "easeInOut"
+                            repeatType: "mirror",
+                            duration: 25,
+                            ease: [0.43, 0.13, 0.23, 0.96] // Improved smoother easing
                         }}
                     />
+                    {/* Second layer */}
                     <motion.path
                         d="M0,224L48,213.3C96,203,192,181,288,176C384,171,480,181,576,197.3C672,213,768,235,864,218.7C960,203,1056,149,1152,138.7C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
                         fill="rgba(252, 211, 77, 0.05)"
@@ -41,9 +43,30 @@ export function HeroSection() {
                         }}
                         transition={{
                             repeat: Infinity,
-                            repeatType: "reverse",
-                            duration: 8,
-                            ease: "easeInOut"
+                            repeatType: "mirror",
+                            duration: 20,
+                            ease: [0.43, 0.13, 0.23, 0.96]
+                        }}
+                    />
+                    {/* Third layer - metaverse grid effect */}
+                    <motion.path
+                        d="M0,64L48,96C96,128,192,192,288,192C384,192,480,128,576,128C672,128,768,192,864,202.7C960,213,1056,171,1152,160C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                        fill="rgba(252, 211, 77, 0.02)"
+                        stroke="rgba(252, 211, 77, 0.05)"
+                        strokeWidth="0.5"
+                        animate={{
+                            d: [
+                                "M0,64L48,96C96,128,192,192,288,192C384,192,480,128,576,128C672,128,768,192,864,202.7C960,213,1056,171,1152,160C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
+                                "M0,96L48,117.3C96,139,192,181,288,176C384,171,480,117,576,122.7C672,128,768,192,864,186.7C960,181,1056,107,1152,85.3C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                            ],
+                            strokeDasharray: ["0", "5"],
+                            strokeDashoffset: [0, 10]
+                        }}
+                        transition={{
+                            repeat: Infinity,
+                            repeatType: "mirror",
+                            duration: 30,
+                            ease: "linear"
                         }}
                     />
                 </svg>
@@ -79,13 +102,19 @@ export function HeroSection() {
                         ease: "easeInOut"
                     }}
                 />
+                {/* Metaverse-like gradient sphere */}
                 <motion.div
-                    className="absolute top-1/2 right-1/3 h-72 w-72 rounded-full bg-yellow-400/10 blur-[90px]"
+                    className="absolute top-1/2 right-1/3 h-72 w-72 rounded-full bg-gradient-to-br from-yellow-400/5 via-amber-500/10 to-yellow-300/5 blur-[90px]"
                     animate={{
                         scale: [1, 1.15, 1],
                         opacity: [0.1, 0.3, 0.1],
                         x: [-15, 15, -15],
-                        y: [15, -15, 15]
+                        y: [15, -15, 15],
+                        background: [
+                            "radial-gradient(circle, rgba(252,211,77,0.05) 0%, rgba(245,158,11,0.1) 50%, rgba(252,211,77,0.05) 100%)",
+                            "radial-gradient(circle, rgba(252,211,77,0.1) 0%, rgba(245,158,11,0.05) 50%, rgba(252,211,77,0.1) 100%)",
+                            "radial-gradient(circle, rgba(252,211,77,0.05) 0%, rgba(245,158,11,0.1) 50%, rgba(252,211,77,0.05) 100%)",
+                        ]
                     }}
                     transition={{
                         repeat: Infinity,
@@ -93,22 +122,29 @@ export function HeroSection() {
                         ease: "easeInOut"
                     }}
                 />
+                {/* Digital grid overlay - metaverse effect */}
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDIxNSwgMCwgMC4wMykiIHN0cm9rZS13aWR0aD0iMC41Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIiAvPjwvc3ZnPg==')]" style={{ opacity: 0.3 }}></div>
             </div>
 
             {/* Floating particles */}
             <div className="absolute inset-0 z-0">
-                {[...Array(6)].map((_, i) => (
+                {[...Array(8)].map((_, i) => (
                     <motion.div
                         key={i}
                         className="absolute h-2 w-2 rounded-full bg-yellow-300/40"
                         style={{
-                            top: `${20 + i * 15}%`,
-                            left: `${10 + i * 15}%`,
+                            top: `${15 + i * 10}%`,
+                            left: `${5 + i * 12}%`,
                         }}
                         animate={{
                             y: [0, -30, 0],
                             opacity: [0.2, 0.5, 0.2],
-                            scale: [1, 1.2, 1]
+                            scale: [1, 1.2, 1],
+                            boxShadow: [
+                                "0 0 0px rgba(252, 211, 77, 0)",
+                                "0 0 10px rgba(252, 211, 77, 0.3)",
+                                "0 0 0px rgba(252, 211, 77, 0)"
+                            ]
                         }}
                         transition={{
                             duration: 4 + i,
@@ -130,28 +166,35 @@ export function HeroSection() {
                     >
                         <motion.div
                             animate={{
-                                boxShadow: ["0 0 0px rgba(252, 211, 77, 0)", "0 0 30px rgba(252, 211, 77, 0.5)", "0 0 0px rgba(252, 211, 77, 0)"]
+                                rotate: [0, 0, 360, 360],
+                                scale: [1, 1.05, 1.05, 1],
                             }}
                             transition={{
-                                duration: 3,
+                                times: [0, 0.3, 0.9, 1],
+                                duration: 6,
                                 repeat: Infinity,
-                                ease: "easeInOut"
+                                ease: [0.6, 0.05, 0.5, 0.95],
                             }}
                             className="rounded-full"
+                            style={{ background: 'transparent' }}
                         >
                             <Image
                                 src={logo}
                                 alt="Quantara Logo"
                                 width={120}
                                 height={120}
-                                className="atomic-glow mx-auto"
+                                className="mx-auto"
+                                style={{
+                                    filter: 'drop-shadow(0 0 5px rgba(252, 211, 77, 0.3))',
+                                    background: 'transparent',
+                                }}
                             />
                         </motion.div>
                     </motion.div>
 
                     <div className="mb-6 inline-block">
                         <motion.span
-                            className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-yellow-500/10 text-yellow-300 border border-yellow-500/30"
+                            className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-yellow-500/10 text-yellow-300 border border-yellow-500/30 backdrop-blur-sm"
                             animate={{
                                 boxShadow: ["0 0 0px rgba(252, 211, 77, 0.2)", "0 0 20px rgba(252, 211, 77, 0.5)", "0 0 0px rgba(252, 211, 77, 0.2)"]
                             }}
@@ -212,20 +255,25 @@ export function HeroSection() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.6 }}
                     >
+                        {/* Changed button: Invite Friends */}
                         <motion.div
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         >
-                            <Button className="bg-gradient-to-r from-yellow-400 to-amber-600 hover:from-yellow-500 hover:to-amber-700 text-black font-medium px-8 py-6 text-lg">
-                                Start Staking
+                            <Button className="bg-gradient-to-r from-yellow-400 to-amber-600 hover:from-yellow-500 hover:to-amber-700 text-black font-medium px-8 py-6 text-lg group">
+                                <Users className="mr-2 h-5 w-5 transition-transform group-hover:scale-110" />
+                                Invite Friends
                             </Button>
                         </motion.div>
+
+                        {/* Changed button: Connect Wallet */}
                         <motion.div
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         >
-                            <Button variant="outline" className="border-yellow-500/50 text-white hover:bg-yellow-500/10 text-lg px-8 py-6">
-                                Learn More <ArrowRight className="ml-2 h-5 w-5" />
+                            <Button variant="outline" className="border-yellow-500/50 text-white hover:bg-yellow-500/10 text-lg px-8 py-6 group">
+                                <Wallet className="mr-2 h-5 w-5 transition-transform group-hover:scale-110" />
+                                Connect Wallet
                             </Button>
                         </motion.div>
                     </motion.div>
@@ -239,28 +287,28 @@ export function HeroSection() {
                         <p className="text-sm text-gray-400 mb-4">Trusted by thousands of investors worldwide</p>
                         <div className="flex flex-wrap justify-center gap-8 opacity-70">
                             <motion.div
-                                className="h-8 w-24 bg-gray-500/20 rounded flex items-center justify-center text-xs text-gray-400"
+                                className="h-8 w-24 bg-gray-500/20 backdrop-blur-sm rounded flex items-center justify-center text-xs text-gray-400"
                                 whileHover={{
                                     backgroundColor: "rgba(252, 211, 77, 0.1)",
                                     scale: 1.05
                                 }}
                             >$24.5M+ Staked</motion.div>
                             <motion.div
-                                className="h-8 w-24 bg-gray-500/20 rounded flex items-center justify-center text-xs text-gray-400"
+                                className="h-8 w-24 bg-gray-500/20 backdrop-blur-sm rounded flex items-center justify-center text-xs text-gray-400"
                                 whileHover={{
                                     backgroundColor: "rgba(252, 211, 77, 0.1)",
                                     scale: 1.05
                                 }}
                             >15,000+ Users</motion.div>
                             <motion.div
-                                className="h-8 w-24 bg-gray-500/20 rounded flex items-center justify-center text-xs text-gray-400"
+                                className="h-8 w-24 bg-gray-500/20 backdrop-blur-sm rounded flex items-center justify-center text-xs text-gray-400"
                                 whileHover={{
                                     backgroundColor: "rgba(252, 211, 77, 0.1)",
                                     scale: 1.05
                                 }}
                             >99.9% Uptime</motion.div>
                             <motion.div
-                                className="h-8 w-24 bg-gray-500/20 rounded flex items-center justify-center text-xs text-gray-400"
+                                className="h-8 w-24 bg-gray-500/20 backdrop-blur-sm rounded flex items-center justify-center text-xs text-gray-400"
                                 whileHover={{
                                     backgroundColor: "rgba(252, 211, 77, 0.1)",
                                     scale: 1.05
